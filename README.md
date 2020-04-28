@@ -1,5 +1,6 @@
 # Network Image Mock
 
+![Pub Version](https://img.shields.io/pub/v/network_image_mock?color=%233dc6fd&logo=flutter&logoColor=%233dc6fd)
 ![Lint & Test](https://github.com/stelynx/network_image_mock/workflows/Lint%20&%20Test/badge.svg)
 [![codecov.io](https://codecov.io/gh/stelynx/network_image_mock/branch/master/graphs/badge.svg)](https://codecov.io/gh/stelynx/network_image_mock/branch/master)
 
