@@ -1,0 +1,19 @@
+name: example
+description: An example for network_image_mock package.
+version: 1.0.0
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  network_image_mock:
+    path: ../
+
+flutter:
+  uses-material-design: true
