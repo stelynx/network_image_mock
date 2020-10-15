@@ -31,6 +31,8 @@ MockHttpClient createMockImageHttpClient() {
   when(request.headers).thenReturn(headers);
   when(request.close())
       .thenAnswer((_) => Future<HttpClientResponse>.value(response));
+  when(response.compressionState)
+      .thenReturn(HttpClientResponseCompressionState.notCompressed);
   when(response.contentLength).thenReturn(image.length);
   when(response.statusCode).thenReturn(HttpStatus.ok);
   when(response.listen(any)).thenAnswer((Invocation invocation) {
