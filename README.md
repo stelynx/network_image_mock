@@ -22,7 +22,7 @@ This package should be installed under `dev_dependencies` like
 
 ```yaml
 dev_dependencies:
-  network_image_mock: ^1.0.0
+  network_image_mock: ^1.0.2
 ```
 
 ## Example
