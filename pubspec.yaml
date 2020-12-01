@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  mockito: ^4.1.1
+  mockito: ^4.1.3
 
 dev_dependencies:
   flutter_test:

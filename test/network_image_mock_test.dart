@@ -15,7 +15,21 @@ void main() {
       final HttpClientRequest request = await client.getUrl(Uri());
       final HttpClientResponse response = await request.close();
 
-      response.listen((List<int> img) => expect(img, equals(image)));
+      await response
+          .listen((List<int> img) => expect(img, equals(image)))
+          .asFuture();
+    });
+
+    test('should return image when listening with all callbacks', () async {
+      final MockHttpClient client = createMockImageHttpClient();
+
+      final HttpClientRequest request = await client.getUrl(Uri());
+      final HttpClientResponse response = await request.close();
+
+      await response
+          .listen((List<int> img) => expect(img, equals(image)),
+              onError: (err, stack) {}, onDone: () {}, cancelOnError: true)
+          .asFuture();
     });
   });
 
@@ -23,7 +37,8 @@ void main() {
     testWidgets(
       'should properly mock Image.network and not crash',
       (WidgetTester tester) async {
-        mockNetworkImagesFor(() => tester.pumpWidget(makeTestableWidget()));
+        await mockNetworkImagesFor(
+            () => tester.pumpWidget(makeTestableWidget()));
       },
     );
   });
