@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.0
+
+Change how mocking response's `listen` works.
+
 ## 1.0.2
 
 Set compression state of response of mocked client to "not compressed"
