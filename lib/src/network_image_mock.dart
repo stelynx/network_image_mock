@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:mockito/mockito.dart';
@@ -35,11 +36,15 @@ MockHttpClient createMockImageHttpClient() {
       .thenReturn(HttpClientResponseCompressionState.notCompressed);
   when(response.contentLength).thenReturn(image.length);
   when(response.statusCode).thenReturn(HttpStatus.ok);
-  when(response.listen(any)).thenAnswer((Invocation invocation) {
+  when(response.listen(
+    any,
+    onError: anyNamed("onError"),
+    onDone: anyNamed("onDone"),
+    cancelOnError: anyNamed("cancelOnError"),
+  )).thenAnswer((Invocation invocation) {
     final void Function(List<int>) onData = invocation.positionalArguments[0];
-    final void Function() onDone = invocation.namedArguments[#onDone];
-    final void Function(Object, [StackTrace]) onError =
-        invocation.namedArguments[#onError];
+    final onDone = invocation.namedArguments[#onDone];
+    final onError = invocation.namedArguments[#onError];
     final bool cancelOnError = invocation.namedArguments[#cancelOnError];
 
     return Stream<List<int>>.fromIterable(<List<int>>[image]).listen(onData,
@@ -49,4 +54,7 @@ MockHttpClient createMockImageHttpClient() {
   return client;
 }
 
-const List<int> image = const <int>[0x00, 0x00, 0x00, 0x00];
+//transparent pixel in png format
+final image = base64Decode(
+  "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==",
+);
