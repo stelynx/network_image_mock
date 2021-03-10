@@ -3,6 +3,8 @@
 [![Pub Version](https://img.shields.io/pub/v/network_image_mock?color=%233dc6fd&logo=flutter&logoColor=%233dc6fd)](https://pub.dev/packages/network_image_mock)
 ![Lint & Test](https://github.com/stelynx/network_image_mock/workflows/Lint%20&%20Test/badge.svg)
 [![codecov.io](https://codecov.io/gh/stelynx/network_image_mock/branch/master/graphs/badge.svg)](https://codecov.io/gh/stelynx/network_image_mock/branch/master)
+![Null safety](https://img.shields.io/badge/null%20safety-^2.0.0-brightgreen)
+![No null safety](https://img.shields.io/badge/no%20null%20safety-1.1.0-orange)
 ![GitHub Repo stars](https://img.shields.io/github/stars/stelynx/network_image_mock?color=gold&logo=github&style=plastic)
 ![GitHub contributors](https://img.shields.io/github/contributors/stelynx/network_image_mock?logo=github)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/stelynx/network_image_mock)
