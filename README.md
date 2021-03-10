@@ -3,6 +3,10 @@
 [![Pub Version](https://img.shields.io/pub/v/network_image_mock?color=%233dc6fd&logo=flutter&logoColor=%233dc6fd)](https://pub.dev/packages/network_image_mock)
 ![Lint & Test](https://github.com/stelynx/network_image_mock/workflows/Lint%20&%20Test/badge.svg)
 [![codecov.io](https://codecov.io/gh/stelynx/network_image_mock/branch/master/graphs/badge.svg)](https://codecov.io/gh/stelynx/network_image_mock/branch/master)
+![GitHub Repo stars](https://img.shields.io/github/stars/stelynx/network_image_mock?color=gold&logo=github&style=plastic)
+![GitHub contributors](https://img.shields.io/github/contributors/stelynx/network_image_mock?logo=github)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/stelynx/network_image_mock)
+[![GitHub](https://img.shields.io/github/license/stelynx/network_image_mock)](LICENSE)
 
 A utility for providing mocked response to `Image.network` in Flutter widget tests.
 
@@ -18,11 +22,22 @@ asking for bumping the `mockito` version and making the package usable again.
 
 ## Installing
 
-This package should be installed under `dev_dependencies` like
+### Null safety
+
+This package should be installed under `dev_dependencies` with
 
 ```yaml
 dev_dependencies:
-  network_image_mock: ^1.1.0
+  network_image_mock: ^2.0.0
+```
+
+### Without null safety (deprecated)
+
+If you have legacy unmigrated code that does not use Null safety, install under `dev_dependencies` with
+
+```yaml
+dev_dependencies:
+  network_image_mock: 1.1.0
 ```
 
 ## Example

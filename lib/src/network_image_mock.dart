@@ -15,6 +15,7 @@ R mockNetworkImagesFor<R>(R body()) {
 class MockHttpClient extends Mock implements HttpClient {
   @override
   Future<HttpClientRequest> getUrl(Uri? url) {
+    // ignore: invalid_use_of_visible_for_testing_member
     return super.noSuchMethod(Invocation.method(#getUrl, [url]),
         returnValue: Future.value(MockHttpClientRequest()));
   }
@@ -22,11 +23,13 @@ class MockHttpClient extends Mock implements HttpClient {
 
 class MockHttpClientRequest extends Mock implements HttpClientRequest {
   @override
+  // ignore: invalid_use_of_visible_for_testing_member
   HttpHeaders get headers => super.noSuchMethod(Invocation.getter(#headers),
       returnValue: MockHttpHeaders());
 
   @override
   Future<HttpClientResponse> close() =>
+      // ignore: invalid_use_of_visible_for_testing_member
       super.noSuchMethod(Invocation.method(#close, []),
           returnValue: Future.value(MockHttpClientResponse()));
 }
@@ -34,20 +37,24 @@ class MockHttpClientRequest extends Mock implements HttpClientRequest {
 class MockHttpClientResponse extends Mock implements HttpClientResponse {
   @override
   HttpClientResponseCompressionState get compressionState =>
+      // ignore: invalid_use_of_visible_for_testing_member
       super.noSuchMethod(Invocation.getter(#compressionState),
           returnValue: HttpClientResponseCompressionState.notCompressed);
 
   @override
   int get contentLength =>
+      // ignore: invalid_use_of_visible_for_testing_member
       super.noSuchMethod(Invocation.getter(#contentLength), returnValue: 0);
 
   @override
   int get statusCode =>
+      // ignore: invalid_use_of_visible_for_testing_member
       super.noSuchMethod(Invocation.getter(#statusCode), returnValue: 0);
 
   @override
   StreamSubscription<List<int>> listen(void Function(List<int>)? onData,
           {Function? onError, void Function()? onDone, bool? cancelOnError}) =>
+      // ignore: invalid_use_of_visible_for_testing_member
       super.noSuchMethod(
           Invocation.method(#listen, [
             onData,
