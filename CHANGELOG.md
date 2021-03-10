@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.0
+
+Support for null safety!
+
 ## 1.1.0
 
 Change how mocking response's `listen` works.
