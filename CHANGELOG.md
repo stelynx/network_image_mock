@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.1
+
+Update `mockito` dependency and `pubspec.lock` files.
+
 ## 2.0.0
 
 Support for null safety!

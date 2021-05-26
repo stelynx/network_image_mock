@@ -30,7 +30,7 @@ This package should be installed under `dev_dependencies` with
 
 ```yaml
 dev_dependencies:
-  network_image_mock: ^2.0.0
+  network_image_mock: ^2.0.1
 ```
 
 ### Without null safety (deprecated)
