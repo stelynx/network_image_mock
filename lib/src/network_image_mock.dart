@@ -74,11 +74,28 @@ class MockStreamSubscription<T> extends Mock implements StreamSubscription<T> {}
 MockHttpClient createMockImageHttpClient() {
   final MockHttpClient client = MockHttpClient();
   final MockHttpClientRequest request = MockHttpClientRequest();
+  final MockHttpClientRequest svgRequest = MockHttpClientRequest();
+
+  when(client.getUrl(any)).thenAnswer((Invocation invocation) {
+    return Future<HttpClientRequest>.value(
+      invocation.positionalArguments[0].path.endsWith(".svg")
+          ? svgRequest
+          : request,
+    );
+  });
+
+  mockRequestResponse(request: request, image: image);
+  mockRequestResponse(request: svgRequest, image: svgImage);
+
+  return client;
+}
+
+void mockRequestResponse({
+  required MockHttpClientRequest request,
+  required List<int> image,
+}) {
   final MockHttpClientResponse response = MockHttpClientResponse();
   final MockHttpHeaders headers = MockHttpHeaders();
-
-  when(client.getUrl(any))
-      .thenAnswer((_) => Future<HttpClientRequest>.value(request));
   when(request.headers).thenReturn(headers);
   when(request.close())
       .thenAnswer((_) => Future<HttpClientResponse>.value(response));
@@ -100,11 +117,14 @@ MockHttpClient createMockImageHttpClient() {
     return Stream<List<int>>.fromIterable(<List<int>>[image]).listen(onData,
         onDone: onDone, onError: onError, cancelOnError: cancelOnError);
   });
-
-  return client;
 }
 
 //transparent pixel in png format
 final image = base64Decode(
   "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==",
+);
+
+//one pixel in svg format
+final svgImage = base64Decode(
+  "PHN2ZyBoZWlnaHQ9IjEiIHdpZHRoPSIxIj48L3N2Zz4=",
 );
