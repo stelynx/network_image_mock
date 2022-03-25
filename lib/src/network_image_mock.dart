@@ -87,6 +87,9 @@ MockHttpClient createMockImageHttpClient() {
   mockRequestResponse(request: request, image: image);
   mockRequestResponse(request: svgRequest, image: svgImage);
 
+  request.close();
+  svgRequest.close();
+
   return client;
 }
 
