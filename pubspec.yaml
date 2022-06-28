@@ -1,6 +1,6 @@
 name: network_image_mock
 description: Utility for providing mocked Image.network response in Flutter widget tests.
-version: 2.1.0
+version: 2.1.1
 homepage: https://github.com/stelynx/network_image_mock
 repository: https://github.com/stelynx/network_image_mock
 
