@@ -5,7 +5,7 @@ import 'dart:io';
 import 'package:mockito/mockito.dart';
 
 /// Runs [body] in separate [Zone] with [MockHttpClient].
-R mockNetworkImagesFor<R>(R body()) {
+R mockNetworkImagesFor<R>(R Function() body) {
   return HttpOverrides.runZoned(
     body,
     createHttpClient: (_) => createMockImageHttpClient(),
@@ -59,9 +59,9 @@ class MockHttpClientResponse extends Mock implements HttpClientResponse {
           Invocation.method(#listen, [
             onData,
           ], {
-            Symbol("onError"): onError,
-            Symbol("onDone"): onDone,
-            Symbol("cancelOnError"): cancelOnError,
+            const Symbol("onError"): onError,
+            const Symbol("onDone"): onDone,
+            const Symbol("cancelOnError"): cancelOnError,
           }),
           returnValue: MockStreamSubscription<List<int>>());
 }
